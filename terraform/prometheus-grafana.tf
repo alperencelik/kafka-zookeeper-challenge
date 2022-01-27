@@ -14,9 +14,9 @@ provider "aws" {
   region  = "eu-north-1"
 }
 
-resource "ec2_instance" "grafana-prometheus" {
-#  source  = "terraform-aws-modules/ec2-instance/aws"
-#  version = "~> 3.0"
+module "ec2_instance" "prometheus-grafana"{
+  source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "~> 3.0"
 
   associate_public_ip_address = true
 
