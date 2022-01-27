@@ -17,3 +17,4 @@ provider "aws" {
 resource "aws_instance" "app_server" {
   ami           = "ami-05788af9005ef9a93"
   instance_type = "t3.medium"
+}
