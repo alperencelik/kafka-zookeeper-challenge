@@ -13,4 +13,10 @@
 - name: Change the grafana admin password
   command: grafana-cli admin reset-admin-password 123
   
+  
+- name: Enable and start grafana service
+  service:
+    name: grafana-server
+    enabled: yes
+    state: started
  
