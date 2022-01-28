@@ -1,6 +1,4 @@
 ---
 - hosts: all
-  roles:
-    - role: common
-
+  become: yes
 - import_playbook: prometheus-grafana.yaml
