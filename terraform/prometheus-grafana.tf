@@ -22,5 +22,13 @@ resource "aws_instance" "prometheus-grafana" {
   monitoring                  = false
   associate_public_ip_address = true
   vpc_security_group_ids = ["sg-0e6eb7789ff4a10b4"]
+  
+  tags = {
+    Name ="prometheus-grafana"
   }
+  
+  
+  }
+
+
 
