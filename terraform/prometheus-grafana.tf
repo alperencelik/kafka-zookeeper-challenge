@@ -16,15 +16,12 @@ provider "aws" {
 
 module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
-  version = "~> 3.0"
-
-  associate_public_ip_address = true
-
+  version = "~> 4.0"
+  
   name = "prometheus-grafana"
-
   ami                         = "ami-05788af9005ef9a93"
   instance_type               = "t3.medium"
   key_name                    = "alp-eren"
   monitoring                  = false
-
+  associate_public_ip_address = true
 }
