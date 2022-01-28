@@ -1,1 +1,6 @@
 # Playbook to deploy prometheus&grafana
+
+- name: Copy grafana.repo
+  copy:
+    src: grafana.repo
+    dest: /etc/yum.repos.d/grafana.repo
