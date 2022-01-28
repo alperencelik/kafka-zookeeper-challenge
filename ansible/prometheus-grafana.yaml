@@ -1,0 +1,4 @@
+---
+- hosts: prometheus-grafana
+  roles:
+    - role: prometheus-grafana
