@@ -11,7 +11,7 @@
     state: present
 
 - name: Change the grafana admin password
-  command: grafana-cli admin reset-admin-password 123
+  command: grafana-cli admin reset-admin-password testparolası
   
   
 - name: Enable and start grafana service
