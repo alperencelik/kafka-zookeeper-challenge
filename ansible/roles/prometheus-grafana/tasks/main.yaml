@@ -9,3 +9,8 @@
   yum:
     name: grafana-enterprise
     state: present
+
+- name: Change the grafana admin password
+  command: grafana-cli admin reset-admin-password 123
+  
+ 
