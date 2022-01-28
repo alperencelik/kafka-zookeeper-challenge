@@ -21,7 +21,7 @@ module "ec2_instance" {
   name = "prometheus-grafana"
   ami                         = "ami-05788af9005ef9a93"
   instance_type               = "t3.medium"
-  key_name                    = "alperen-public-ip"
+  key_name                    = "alp-eren"
   monitoring                  = false
   associate_public_ip_address = true
   vpc_security_group_ids = ["sg-0e6eb7789ff4a10b4"]
