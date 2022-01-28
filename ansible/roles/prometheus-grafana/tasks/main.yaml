@@ -15,7 +15,7 @@
   
 - name: "Grafana configuration file copy"
   copy:
-    src: "grafana.conf"
+    src: grafana.conf
     dest: /etc/grafana/grafana.ini
 
 - name: Enable and start grafana service
