@@ -1,3 +1,3 @@
-output "ec2_instance_public_ip" {
-  value       = module.ec2_instance.public_ip
+output "aws_instance.prometheus-grafana.public_ip" {
+  value       = aws_instance.prometheus-grafana.public_ip
 }
