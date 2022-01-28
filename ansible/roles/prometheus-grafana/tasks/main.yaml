@@ -4,3 +4,8 @@
   copy:
     src: grafana.repo
     dest: /etc/yum.repos.d/grafana.repo
+    
+ - name: Install grafana
+  yum:
+    name: grafana-enterprise
+    state: present
