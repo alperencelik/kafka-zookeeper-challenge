@@ -21,7 +21,7 @@ resource "aws_instance" "prometheus-grafana" {
   key_name                    = "alp-eren"
   monitoring                  = false
   associate_public_ip_address = true
-  vpc_security_group_ids = ["sg-0e6eb7789ff4a10b4"]
+  vpc_security_group_ids = ["sg-01b121550a99155d7"]
   
   tags = {
     Name ="prometheus-grafana"
