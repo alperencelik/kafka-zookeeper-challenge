@@ -42,13 +42,13 @@
     group: prometheus
     mode: 0755
   
-  - name: Get prometheus sha
+- name: Get prometheus sha
   uri:
     url: https://github.com/prometheus/prometheus/releases/download/v{{ prometheus_version }}/sha256sums.txt
     return_content: yes
   register: prometheus_gitlab_sha_file
   
- - name: Extract prometheus sha
+- name: Extract prometheus sha
   shell:
     cmd: echo "{{ prometheus_gitlab_sha_file.content }}" | grep linux-amd64 | cut -d " " -f 1
   register: prometheus_sha_checksum
