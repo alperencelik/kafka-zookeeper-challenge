@@ -41,12 +41,23 @@
     owner: prometheus
     group: prometheus
     mode: 0755
+  
+  - name: Get prometheus sha
+  uri:
+    url: https://github.com/prometheus/prometheus/releases/download/v{{ prometheus_version }}/sha256sums.txt
+    return_content: yes
+  register: prometheus_gitlab_sha_file
+  
+ - name: Extract prometheus sha
+  shell:
+    cmd: echo "{{ prometheus_gitlab_sha_file.content }}" | grep linux-amd64 | cut -d " " -f 1
+  register: prometheus_sha_checksum
     
 - name: Download "Prometheus" binary
   get_url:
     url: "https://github.com/prometheus/prometheus/releases/download/v{{ prometheus_version }}/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz"
     dest: "/tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz"
-    checksum: "sha256:{{ prometheus_sha_checksum }}"
+    checksum: "sha256:{{ prometheus_sha_checksum.stdout }}"
  
 - name: Untar prometheus
   unarchive:
