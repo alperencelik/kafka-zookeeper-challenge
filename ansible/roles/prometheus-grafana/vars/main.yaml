@@ -1,0 +1,3 @@
+prometheus_version: 2.33.0
+prometheus_dir: /var/lib/prometehus
+prometheus_conf_dir: /etc/prometheus
