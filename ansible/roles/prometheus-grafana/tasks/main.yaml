@@ -8,7 +8,7 @@
 - name: Install grafana
   yum:
     name: grafana-enterprise
-    state: present
+    state: installed
 
 - name: Change the grafana admin password
   command: grafana-cli admin reset-admin-password testparolası
