@@ -19,13 +19,13 @@
     enabled: yes
     state: started
     
-- name: create prometheus system group
+- name: Create group named "prometheus"
   group:
     name: prometheus
     system: true
     state: present
 
-- name: create prometheus system user
+- name: Create user named "prometheus"
   user:
     name: prometheus
     system: true
@@ -33,6 +33,39 @@
     group: prometheus
     createhome: false
     home: "{{ prometheus_dir }}"
-
+    
+- name: Create prometheus data directory
+  file:
+    path: "{{ prometheus_dir }}"
+    state: directory
+    owner: prometheus
+    group: prometheus
+    mode: 0755
+    
+- name: Download "Prometheus" binary
+  get_url:
+    url: "https://github.com/prometheus/prometheus/releases/download/v{{ prometheus_version }}/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz"
+    dest: "/tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz"
+    checksum: "sha256:{{ prometheus_sha_checksum }}"
+ 
+ - name: Untar prometheus
+  unarchive:
+    src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz
+    dest: /tmp
+    creates: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/prometheus
+    remote_src: yes
+    
+- name: Move prometheus & promtool binaries to /usr/local/bin
+  copy:
+    src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/{{ item }}
+    remote_src: yes
+    dest: /usr/local/bin/{{ item }}
+    mode: u+x,g+x,o+x
+    owner: prometheus
+    group: prometheus
+  with_items:
+    - prometheus
+    - promtool
+ 
 
  
