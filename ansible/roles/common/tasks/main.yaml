@@ -1,1 +1,3 @@
-# Common playbook to run all machines
+- name: Disable SELinux
+  ansible.posix.selinux:
+    state: disabled
