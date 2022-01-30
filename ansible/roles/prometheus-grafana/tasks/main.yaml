@@ -48,7 +48,7 @@
     dest: "/tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz"
     checksum: "sha256:{{ prometheus_sha_checksum }}"
  
- - name: Untar prometheus
+- name: Untar prometheus
   unarchive:
     src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz
     dest: /tmp
