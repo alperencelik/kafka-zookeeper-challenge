@@ -51,6 +51,7 @@
     src: GeoLite2-Country.mmdb
     dest: /etc/geolite/
     mode: 666
+    recurse: yes
     
 - name: Copy nginx.conf
   copy:
