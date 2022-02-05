@@ -27,10 +27,6 @@ module "vault_cluster" {
   # To make testing easier, we allow requests from any IP address here but in a production deployment, we *strongly*
   # recommend you limit this to the IP address ranges of known, trusted servers inside your VPC.
 
-  allowed_ssh_cidr_blocks              = [0.0.0.0/0]
-  allowed_inbound_cidr_blocks          = [0.0.0.0/0]
-  allowed_inbound_security_group_ids   = []
-  allowed_inbound_security_group_count = 0
   ssh_key_name                         = var.ssh_key_name
 }
 
@@ -67,16 +63,6 @@ data "template_file" "user_data_vault_cluster" {
 # we open up the consul specific protocols and ports for consul traffic
 # ---------------------------------------------------------------------------------------------------------------------
 
-module "security_group_rules" {
-  source = "github.com/hashicorp/terraform-aws-consul.git//modules/consul-client-security-group-rules?ref=v0.8.0"
-
-  security_group_id = module.vault_cluster.security_group_id
-
-  # To make testing easier, we allow requests from any IP address here but in a production deployment, we *strongly*
-  # recommend you limit this to the IP address ranges of known, trusted servers inside your VPC.
-
-  allowed_inbound_cidr_blocks = [0.0.0.0/0]
-}
 
 # ---------------------------------------------------------------------------------------------------------------------
 # DEPLOY THE CONSUL SERVER CLUSTER
