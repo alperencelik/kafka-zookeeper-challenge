@@ -18,7 +18,7 @@
   reboot:
     reboot_timeout: 3600
    
-- name: ensure bbr is enabled
+- name: Enable bbr
   sysctl: 
     name: "{{ item.name }}"
     value: "{{ item.value }}"
