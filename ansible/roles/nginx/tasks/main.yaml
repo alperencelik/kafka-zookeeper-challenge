@@ -9,14 +9,15 @@
     enablerepo: elrepo-kernel
 - name: Remake grub config to pick up new kernel
   command: grub2-set-default 0
-- name: Restart server to ensure configuration changes take hold
-  shell: 'sleep 2 && shutdown -r now "Reboot triggered by Ansible" && sleep 5'
-  async: 1
-  poll: 0
-  become: true
+      
+- name: Register a variable
+  command: lsmod | grep bbr
+  register: bbr_status
+
 - name: Wait for server to restart
   reboot:
     reboot_timeout: 3600
+  when: bbr_status.stdout == ""
    
 - name: Enable bbr
   sysctl: 
