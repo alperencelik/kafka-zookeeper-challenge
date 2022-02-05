@@ -44,7 +44,7 @@ module "vault_cluster" {
 #  source = "github.com/hashicorp/terraform-aws-consul.git//modules/consul-iam-policies?ref=v0.8.0"
 
 #  iam_role_id = module.vault_cluster.iam_role_id
-}
+#}
 
 # ---------------------------------------------------------------------------------------------------------------------
 # THE USER DATA SCRIPT THAT WILL RUN ON EACH VAULT SERVER WHEN IT'S BOOTING
