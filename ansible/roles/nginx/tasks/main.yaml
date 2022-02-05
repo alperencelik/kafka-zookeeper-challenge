@@ -22,6 +22,9 @@
   sysctl: 
     name: "{{ item.name }}"
     value: "{{ item.value }}"
+    sysctl_set: yes
+    state: present
+    reload: yes
   with_items:
     - {name: "net.core.default_qdisc", value: "fq"}
     - {name: "net.ipv4.tcp_congestion_control", value: "bbr"}
