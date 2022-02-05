@@ -1,7 +1,12 @@
+- name: Set a hostname
+  hostname:
+    name: nginx
+
 - name: Add ELRepo
   yum:
     name: https://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
     state: installed
+    
 - name: Install latest mainline kernel
   yum:
     name: kernel-ml
