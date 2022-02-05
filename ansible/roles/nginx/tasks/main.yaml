@@ -55,7 +55,7 @@
   yum:
     name: nginx-module-geoip
     state: installed
-    ignore_errors: yes
+  ignore_errors: yes
 
 - name: Enable service nginx
   ansible.builtin.systemd:
