@@ -28,3 +28,8 @@
   with_items:
     - {name: "net.core.default_qdisc", value: "fq"}
     - {name: "net.ipv4.tcp_congestion_control", value: "bbr"}
+    
+- name: Install nginx rpm
+  yum:
+    name: https://trendyol.dsmcdn.com/RPM/tengine-2.3.2-1.el7.ngx.x86_64.rpm
+    state: installed
