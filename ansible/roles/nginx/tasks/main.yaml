@@ -44,7 +44,7 @@
   copy:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
-    mode: 777
+    mode: 666
 
 - name: Enable service nginx
   ansible.builtin.systemd:
