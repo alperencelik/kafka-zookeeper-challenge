@@ -1,2 +1,2 @@
 prometheus-grafana ansible_user=centos ansible_host=172.31.8.97
-nginx ansible_user=centos ansible_host=172.31.8.97
+nginx ansible_user=centos ansible_host=172.31.7.251
