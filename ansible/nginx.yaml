@@ -2,4 +2,6 @@
 - hosts: nginx
   become: yes
   roles:
+    - role: common
     - role: nginx
+    
