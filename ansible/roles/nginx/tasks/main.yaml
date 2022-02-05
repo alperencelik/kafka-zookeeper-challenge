@@ -1,11 +1,11 @@
 - name: Add ELRepo
   yum:
     name: https://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
-    state: latest
+    state: installed
 - name: Install latest mainline kernel
   yum:
     name: kernel-ml
-    state: latest
+    state: installed
     enablerepo: elrepo-kernel
 - name: Remake grub config to pick up new kernel
   command: grub2-set-default 1
