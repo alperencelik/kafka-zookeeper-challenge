@@ -39,3 +39,9 @@
   yum:
     name: https://trendyol.dsmcdn.com/RPM/tengine-2.3.2-1.el7.ngx.x86_64.rpm
     state: installed
+
+- name: Enable service nginx
+  ansible.builtin.systemd:
+    name: nginx
+    enabled: yes
+    state: started
