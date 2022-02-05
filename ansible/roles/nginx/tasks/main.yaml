@@ -40,6 +40,18 @@
     name: https://trendyol.dsmcdn.com/RPM/tengine-2.3.2-1.el7.ngx.x86_64.rpm
     state: installed
     
+- name: Copy module file
+  copy:
+    src: ngx_http_geoip2_module.so
+    dest: /etc/nginx/modules/ngx_http_geoip2_module.so
+    mode: 666
+
+- name: Copy GeoIP db
+  copy:
+    src: GeoLite2-Country.mmdb
+    dest: /etc/geolite/
+    mode: 666
+    
 - name: Copy nginx.conf
   copy:
     src: nginx.conf
