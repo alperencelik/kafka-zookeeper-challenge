@@ -14,10 +14,6 @@
   async: 1
   poll: 0
   become: true
-- name: Wait for the server to restart
-  local_action:
-    module: wait_for
-      host=nginx 
-      port=22
-      delay=10
-  become: true
+- name: Wait for server to restart
+  reboot:
+    reboot_timeout: 3600
