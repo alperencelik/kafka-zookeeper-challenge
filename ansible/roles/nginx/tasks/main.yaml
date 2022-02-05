@@ -17,3 +17,21 @@
 - name: Wait for server to restart
   reboot:
     reboot_timeout: 3600
+   
+- name: enable bbr module in boot
+  blockinfile:
+    dest: /etc/modules-load.d/modules.conf
+    block: |
+      tcp_bbr
+- name: add the tcp_bbr module
+  modprobe:
+    name: tcp_bbr
+    state: present
+
+- name: ensure bbr is enabled
+  sysctl: 
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+  with_items:
+    - {name: "net.core.default_qdisc", value: "fq"}
+    - {name: "net.ipv4.tcp_congestion_control", value: "bbr"}
