@@ -17,7 +17,7 @@
 - name: Wait for the server to restart
   local_action:
     module: wait_for
-      host={{ inventory_hostname }}
+      host= nginx
       port=22
       delay=10
   become: false
