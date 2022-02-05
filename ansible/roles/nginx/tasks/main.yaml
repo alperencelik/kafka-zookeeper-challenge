@@ -46,16 +46,6 @@
     dest: /etc/nginx/nginx.conf
     mode: 666
 
-- name: Copy nginx.repo
-  copy:
-    src: nginx.repo
-    dest: /etc/yum.repos.d/nginx.repo
-    
-- name: Install nginx geo-ip module
-  yum:
-    name: nginx-module-geoip
-    state: installed
-  ignore_errors: yes
 
 - name: Enable service nginx
   ansible.builtin.systemd:
