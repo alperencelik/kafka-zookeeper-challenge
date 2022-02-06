@@ -15,9 +15,9 @@ resource "aws_instance" "zookeeper" {
 #  user_data_base64        = "${var.user_data_base64}"
 
 
-  tags {
-    Name = "${var.name}-zookeeper-${size_of_cluster.index}"
-  }
+#  tags {
+#    Name = "${var.name}-zookeeper-${size_of_cluster.index}"
+#  }
 }
 
 
