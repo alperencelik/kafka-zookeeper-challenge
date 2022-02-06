@@ -1,4 +1,9 @@
-- name: Download foo.conf
+- name: Install java
+  yum:
+    name: java-1.8.0-openjdk
+    state: latest
+-
+- name: Download kafka
   get_url:
-    url: http://example.com/path/file.conf
-    dest: /etc/foo.conf
+    url: https://dlcdn.apache.org/kafka/3.1.0/kafka_2.13-3.1.0.tgz
+    dest: /tmp/kafka.tgz
