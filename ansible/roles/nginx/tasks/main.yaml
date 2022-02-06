@@ -15,15 +15,15 @@
 - name: Remake grub config to pick up new kernel
   command: grub2-set-default 0
       
-- name: Check bbr
-  shell: lsmod | grep bbr
-  register: checkbbr
-  ignore_errors: yes
+#- name: Check bbr
+#  shell: lsmod | grep bbr
+#  register: checkbbr
+#  ignore_errors: yes
 
 - name: Wait for server to restart
   reboot:
     reboot_timeout: 3600
-  when: {{ checkbbr }} == ""
+#  when: {{ checkbbr }} == ""
    
 - name: Enable bbr
   sysctl: 
