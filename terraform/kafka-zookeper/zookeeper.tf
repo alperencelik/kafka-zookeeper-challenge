@@ -9,16 +9,18 @@ resource "aws_instance" "zookeeper" {
   count                   = "${var.count}"
   ami                     = "${var.ami}"
   instance_type           = "${var.instance_type}"
-  ebs_optimized           = "${var.ebs_optimized}"
-  disable_api_termination = "${var.disable_api_termination}"
-  monitoring              = "${var.monitoring}"
-  user_data_base64        = "${var.user_data_base64}"
+#  ebs_optimized           = "${var.ebs_optimized}"
+#  disable_api_termination = "${var.disable_api_termination}"
+#  monitoring              = "${var.monitoring}"
+#  user_data_base64        = "${var.user_data_base64}"
 
 
   tags {
     Name = "${var.name}-zookeeper-${count.index}"
   }
 }
+
+
 
 
 
