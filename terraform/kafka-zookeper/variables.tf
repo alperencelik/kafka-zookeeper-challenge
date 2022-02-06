@@ -1,28 +1,13 @@
-variable "size_of_cluster" {
-  description = "Size of the Zookeeper cluster."
-  default     = 3
-}
-
-variable "ami" {
-  type        = string
-  description = "The AMI to use for the instance."
-  default     = "ami-05788af9005ef9a93"
-}
-
-variable "tags" {
-  type        = map
-  description = "Extra tags to add on the created subnets."
-  default     = {}
-}
-
-variable "name" {
-  type        = string
-  default = "zookeeper"
-}
-
-variable "instance_type" {
+variable "ami_image_id" {
+  description = "Centos 7 ami id"
   type = string
-  default = "t3-small"
+  default = "ami-05788af9005ef9a93"
+}
+
+variable "ssh_key_name" {
+  description = "The name of an EC2 key-pair"
+  type        = string
+  default     = "alp-eren"
 }
 
 
