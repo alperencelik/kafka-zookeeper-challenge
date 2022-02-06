@@ -18,6 +18,7 @@
 - name: Register a variable
   shell: lsmod | grep bbr
   register: checkbbr
+  ignore_errors: yes
 
 - name: Wait for server to restart
   reboot:
