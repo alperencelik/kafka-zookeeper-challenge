@@ -1,25 +1,22 @@
-#resource "aws_network_interface" "main" {
-#  count           = "${var.count}"
-#  subnet_id       = "${element(var.subnet_ids, count.index)}"
-#  private_ips     = ["${cidrhost(element(var.subnet_cidr, count.index), 1)}"]
-#  security_groups = ["${aws_security_group.zookeeper-server.id}"]
-#}
-
-resource "aws_instance" "zookeeper" {
-  count                   = "${var.size_of_cluster}"
-  ami                     = "${var.ami}"
-  instance_type           = "${var.instance_type}"
-#  ebs_optimized           = "${var.ebs_optimized}"
-#  disable_api_termination = "${var.disable_api_termination}"
-#  monitoring              = "${var.monitoring}"
-#  user_data_base64        = "${var.user_data_base64}"
-
-
-#  tags {
-#    Name = "${var.name}-zookeeper-${size_of_cluster.index}"
-#  }
+module "zookeeper-subnets" {
+  source      = "github.com/terraform-kafka/terraform-aws-multi-az-subnets?ref=v0.0.1"
+  name        = "broker-zookeeper-group"
+  vpc_id      = "vpc-9d50fff4"
+#  cidr_blocks = [
+#    "172.20.132.0/27",
+#    "172.20.132.32/27",
+#    "172.20.132.64/27",
+#  ]
 }
 
+module "zookeeper-cluster" {
+  source      = "github.com/terraform-kafka/terraform-aws-zookeeper?ref=v0.0.1"
+  name        = "zk"
+  count       = 3
+#  subnet_ids  = "${module.zookeeper-subnets.subnet_ids}"
+#  subnet_cidr = "${module.zookeeper-subnets.subnet_cidr}"
+  ami         = "ami-05788af9005ef9a93"
+}
 
 
 
