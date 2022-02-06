@@ -27,6 +27,7 @@ resource "aws_instance" "active-kafka" {
   tags = {
     Name ="active-kafka-${count.index}"
   }
+}
  
 resource "aws_instance" "standby-kafka" {
 
