@@ -4,25 +4,25 @@ variable "count" {
 }
 
 variable "ami" {
-  type        = "string"
+  type        = string
   description = "The AMI to use for the instance."
-  default     = ami-05788af9005ef9a93
+  default     = "ami-05788af9005ef9a93"
 }
 
 variable "tags" {
-  type        = "map"
+  type        = map
   description = "Extra tags to add on the created subnets."
   default     = {}
 }
 
 variable "name" {
-  type        = "string"
-  default = zookeeper
+  type        = string
+  default = "zookeeper"
 }
 
 variable "instance_type" {
-  type = "string"
-  default = t3-small
+  type = string
+  default = "t3-small"
 }
 
 
