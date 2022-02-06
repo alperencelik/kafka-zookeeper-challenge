@@ -24,7 +24,7 @@ resource "aws_instance" "nginx" {
   vpc_security_group_ids = ["sg-01b121550a99155d7"]
   
   tags = {
-    Name ="prometheus-grafana"
+    Name ="nginx"
   }
   
   
