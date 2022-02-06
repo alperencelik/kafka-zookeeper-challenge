@@ -55,7 +55,7 @@ resource "aws_instance" "active-zookeeper" {
   vpc_security_group_ids = ["sg-01b121550a99155d7"]
   
   tags = {
-    Name ="standby-kafka-${count.index}"
+    Name ="active-zookeeper-${count.index}"
   }  
   }
 
@@ -70,6 +70,6 @@ resource "aws_instance" "standby-zookeeper" {
   vpc_security_group_ids = ["sg-01b121550a99155d7"]
   
   tags = {
-    Name ="standby-kafka-${count.index}"
+    Name ="standby-zookeeper-${count.index}"
   }  
   }
