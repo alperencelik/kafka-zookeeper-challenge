@@ -1,2 +1,13 @@
 prometheus-grafana ansible_user=centos ansible_host=172.31.8.97
 nginx ansible_user=centos ansible_host=172.31.3.170
+
+active-kafka-0 ansible_user=centos ansible_host=172.31.35.185
+active-kafka-1 ansible_user=centos ansible_host=172.31.40.82
+active-kafka-2 ansible_user=centos ansible_host=172.31.44.248
+active-zookeeper-0 ansible_user=centos ansible_host=172.31.39.116
+active-zookeeper-1 ansible_user=centos ansible_host=172.31.32.136
+standby-kafka-0 ansible_user=centos ansible_host=172.31.37.144
+standby-kafka-1 ansible_user=centos ansible_host=172.31.44.15
+standby-kafka-2 ansible_user=centos ansible_host=172.31.34.138
+standby-zookeeper-0 ansible_user=centos ansible_host=172.31.36.10
+standby-zookeeper-1 ansible_user=centos ansible_host=172.31.36.10
