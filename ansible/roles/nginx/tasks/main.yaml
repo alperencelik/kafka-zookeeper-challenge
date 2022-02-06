@@ -50,7 +50,7 @@
 - name: Copy GeoIP db
   copy:
     src: GeoLite2-Country.mmdb
-    dest: /etc/geolite/
+    dest: /etc/nginx
     mode: 666
 
     
