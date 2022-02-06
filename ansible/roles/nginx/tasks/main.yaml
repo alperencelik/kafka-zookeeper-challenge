@@ -17,12 +17,12 @@
       
 - name: Register a variable
   shell: lsmod | grep bbr
-  register: bbr_status
+  register: checkbbr
 
 - name: Wait for server to restart
   reboot:
     reboot_timeout: 3600
-  when: bbr_status.stdout == ""
+  when: checkbbr.stdout == ""
    
 - name: Enable bbr
   sysctl: 
