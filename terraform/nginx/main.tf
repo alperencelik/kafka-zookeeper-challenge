@@ -16,9 +16,9 @@ provider "aws" {
 
 resource "aws_instance" "nginx" {
 
-  ami                         = "ami-05788af9005ef9a93"
+  ami                         = var.ami_image_id
   instance_type               = "t3.medium"
-  key_name                    = "alp-eren"
+  key_name                    = var.ssh_key_name
   monitoring                  = false
   associate_public_ip_address = true
   vpc_security_group_ids = ["sg-01b121550a99155d7"]
