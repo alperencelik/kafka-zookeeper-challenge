@@ -1,4 +1,4 @@
-variable "count" {
+variable "size_of_cluster" {
   description = "Size of the Zookeeper cluster."
   default     = 3
 }
