@@ -6,7 +6,7 @@ resource "aws_network_interface" "main" {
 }
 
 resource "aws_instance" "zookeeper" {
-  count                   = "${var.count}"
+  count                   = "${var.size_of_cluster}"
   ami                     = "${var.ami}"
   instance_type           = "${var.instance_type}"
 #  ebs_optimized           = "${var.ebs_optimized}"
