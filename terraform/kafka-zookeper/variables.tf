@@ -6,7 +6,7 @@ variable "count" {
 variable "ami" {
   type        = "string"
   description = "The AMI to use for the instance."
-  default     = "ami-05788af9005ef9a93"
+  default     = ami-05788af9005ef9a93
 }
 
 variable "tags" {
@@ -17,12 +17,12 @@ variable "tags" {
 
 variable "name" {
   type        = "string"
-  default = "zookeeper"
+  default = zookeeper
 }
 
 variable "instance_type" {
   type = "string"
-  default = "t3-small"
+  default = t3-small
 }
 
 
