@@ -19,5 +19,5 @@ variable "resource_name_prefix" {
  variable "private_subnet_tags" {
     type = map(string)
     description = "Explicitly passing in the subnet tags that we'll deploy Vault into, so that both the VPC prereq module and the vault-ent module have the same data and don't depend on each other."
-    default = ["subnet-289c3041","subnet-7f10df04","subnet-ba9970f7"]
+    default = { "Vault": "subnet-289c3041" }
 }
