@@ -1,4 +1,13 @@
+module "aws-vpc" {
+  source  = "hashicorp/vault-ent-starter/aws//examples/aws-vpc"
+  version = "0.1.2"
 
+  # required variables
+  aws_region           = var.aws_region
+  azs                  = var.azs
+  resource_name_prefix = var.resource_name_prefix
+  private_subnet_tags  = var.private_subnet_tags
+}
 // OUTPUTS
 //   private_subnet_tags
 //   vpc_id 
@@ -30,10 +39,10 @@ module "vault-starter" {
   version = "1.0.0"
 
   resource_name_prefix = var.resource_name_prefix
-  private_subnet_tags  = var.private_subnet_tags
+  private_subnet_tags  = module.aws-vpc.private_subnet_tags
 
   # Required variables from VPC example module
-  vpc_id = "vpc-9d50fff4"
+  vpc_id = module.aws-vpc.vpc_id
 
   # Required variables from ACM example module
   leader_tls_servername = module.aws-secrets-manager-acm.leader_tls_servername
