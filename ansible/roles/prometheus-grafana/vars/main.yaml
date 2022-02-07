@@ -2,3 +2,4 @@ prometheus_version: 2.33.0
 prometheus_dir: /var/lib/prometehus
 prometheus_conf_dir: /etc/prometheus
 prometheus_sha_checksum:
+grafana_password: usevaultnotvars 
