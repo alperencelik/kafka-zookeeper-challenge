@@ -30,7 +30,7 @@ module "vault-starter" {
   version = "1.0.0"
 
   resource_name_prefix = var.resource_name_prefix
- # private_subnet_tags  = module.aws-vpc.private_subnet_tags
+  private_subnet_tags  = var.private_subnet_tags
 
   # Required variables from VPC example module
   vpc_id = "vpc-9d50fff4"
