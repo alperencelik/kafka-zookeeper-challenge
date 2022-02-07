@@ -13,7 +13,7 @@ variable "azs" {
 variable "resource_name_prefix" {
     type = string
     description = "all of your resources will have their identifiers prefixed with this string, so you can tell them apart."
-    default = "tutorialinux"
+    default = "vault-cluster"
 }
 
 variable "private_subnet_tags" {
