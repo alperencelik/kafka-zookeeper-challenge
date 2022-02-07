@@ -1,13 +1,13 @@
 variable "aws_region" {
     type = string
     description = "The AWS region you want your region-specific resources provisioned in."
-    default = "us-west-2"
+    default = "eu-north-1"
 }
 
 variable "azs" {
     type = list(string)
     description = "A valid list of Availability Zones (AZs) to deploy your regional resources into."
-    default = ["us-west-2a", "us-west-2b", "us-west-2c"]
+    default = ["eu-north-1a", "eu-north-1b", "eu-north-1c"]
 }
 
 variable "resource_name_prefix" {
